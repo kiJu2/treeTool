@@ -21,11 +21,12 @@ h1 {
 }
 
 .text {
+  font-size: 24px;
   height: 20%;
   width: 100%;
   /* font-size: small; */
-  font-style: italic;
-  color: rgb(54, 11, 184);
+  /* font-style: italic; */
+  color: blue;
 }
 
 .side {

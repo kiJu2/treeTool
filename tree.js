@@ -208,17 +208,63 @@ const balanceByRotation = function (tree) {
   return balanceByRotation(copy);
 };
 
-const main = function () {
-  // const list = [82, 1, 72, 50, 14, 99, 97, 37, 53, 80, 19, 98, 23];
-  // const list = [5, 3, 8, 1, 4, 7, 9];
-  const list = generateRandomArray(31);
-  let tree = list.reduce(insertToTree, null);
+var list = [];
+var tree = list.reduce(insertToTree, null);
+
+// const render = () =>{
+//   tree = list.reduce(insertToTree, null);
+
+//   tree = balanceByRotation(tree);
+//   console.log(isBalanced(tree));
+//   visualize(tree, document.querySelector('#container'));
+// }
+
+const getInputData = () =>{
+  const item = Number(document.getElementById("item").value);
+  return item;
+}
+
+const handleClickAppend = () =>{
+  const item = getInputData();
+  
+
+  if(list.indexOf(item) >= 0){
+    alert("이미 존재하는 노드입니다.");
+  }
+  else{
+    list.push(item);
+  }
+
+  render(list)
+}
+
+const handleClickRemove = () =>{
+  const item = getInputData()
+  const index = list.indexOf(item);
+
+  if (index > -1) {
+     list.splice(index, 1);
+  }
+  
+  render(list)
+}
+
+const render = function (list) {
+  // var list = [82, 1, 72, 50, 14, 99, 97, 37, 53, 80, 19, 98, 23];
+  // var list = list_;
+  // console.log(list)
+  // insertToTree(tree, list);
+  // insertToTree(tree, 22);
+  // insertToTree(tree, 22);
   // tree = balance(tree);
   // let tree = list.reduce(insertAndBalance, null);
-
-  tree = balanceByRotation(tree);
+  tree = list.reduce(insertToTree, null)
+  console.log(tree)
+  // tree = balanceByRotation(tree);
+  console.log(tree)
   console.log(isBalanced(tree));
+  document.getElementById("container").innerHTML = "";
   visualize(tree, document.querySelector('#container'));
 };
 
-window.onload = main;
+// window.onload = main;
