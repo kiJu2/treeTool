@@ -211,14 +211,6 @@ const balanceByRotation = function (tree) {
 var list = [];
 var tree = list.reduce(insertToTree, null);
 
-// const render = () =>{
-//   tree = list.reduce(insertToTree, null);
-
-//   tree = balanceByRotation(tree);
-//   console.log(isBalanced(tree));
-//   visualize(tree, document.querySelector('#container'));
-// }
-
 const getInputData = () =>{
   const item = Number(document.getElementById("item").value);
   return item;
@@ -250,21 +242,9 @@ const handleClickRemove = () =>{
 }
 
 const render = function (list) {
-  // var list = [82, 1, 72, 50, 14, 99, 97, 37, 53, 80, 19, 98, 23];
-  // var list = list_;
-  // console.log(list)
-  // insertToTree(tree, list);
-  // insertToTree(tree, 22);
-  // insertToTree(tree, 22);
-  // tree = balance(tree);
-  // let tree = list.reduce(insertAndBalance, null);
   tree = list.reduce(insertToTree, null)
-  console.log(tree)
-  // tree = balanceByRotation(tree);
-  console.log(tree)
+
   console.log(isBalanced(tree));
   document.getElementById("container").innerHTML = "";
   visualize(tree, document.querySelector('#container'));
 };
-
-// window.onload = main;
